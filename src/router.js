@@ -5,6 +5,7 @@ import { AuthLayout } from "./auth//AuthLayout";
 import { Home } from "./components/Home/Home";
 import { Login } from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
+import { Main } from "./components/DashBoard/Main/Main"
 import { VerifyEmail } from "./components/VerifyEmail/VerifyEmail";
 
 const getUserData = () => 
@@ -27,9 +28,11 @@ export const router = createBrowserRouter(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/dashboard" element={<Main />} />
+
         </Route>
 
-        <Route path="/dashboard" element={<ProtectedLayout />} />
+        {/* <Route path="/dashboard" element={<ProtectedLayout />} /> */}
       </Route>
     </>
   )
