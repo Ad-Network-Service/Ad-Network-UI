@@ -1,4 +1,4 @@
-export const LoginPage = () => (
+export const Login = () => (
     <div>
       <div className="container position-sticky z-index-sticky top-0">
     <div className="row">

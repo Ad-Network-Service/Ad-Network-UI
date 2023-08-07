@@ -1,6 +1,6 @@
 import "./Home.css"
 
-export const HomePage = () => (
+export const Home = () => (
     <div>
      
      <div className="container-fluid position-sticky z-index-sticky top-0">
