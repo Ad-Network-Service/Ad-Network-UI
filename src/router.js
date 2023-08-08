@@ -8,6 +8,7 @@ import SignUp from "./components/SignUp/SignUp";
 import VerifyEmail from "./components/VerifyEmail/VerifyEmail";
 import AuthLayout from "./components/AuthLayout/AuthLayout";
 import { EmailVerification } from "./auth/EmailVerification/EmailVerification";
+import { Main } from "./components/DashBoard/Main/Main"
 
 const getUserData = () => 
   new Promise((resolve) => 
@@ -35,7 +36,9 @@ export const router = createBrowserRouter(
 
         <Route path="/verify" element={<EmailVerification />} />
 
-        <Route path="/dashboard" element={<ProtectedLayout />} />
+        {/* <Route path="/dashboard" element={<ProtectedLayout />} /> */}
+        
+        <Route path="/dashboard" element={<Main />} />
       </Route>
     </>
   )
