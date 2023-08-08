@@ -3,7 +3,7 @@ import { AuthProvider } from "./AuthProvider";
 import { Suspense } from "react";
 import { Alert, LinearProgress } from "@mui/material";
 
-export const AuthLayout = () => {
+export const AuthLayer = () => {
     const outlet = useOutlet();
 
     const { userPromise } = useLoaderData();
