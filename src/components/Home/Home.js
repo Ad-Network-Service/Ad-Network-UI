@@ -9,9 +9,9 @@ export const Home = () => (
                 <nav className="navbar navbar-expand-lg blur  top-0 z-index-3 shadow position-absolute  py-2 start-0 end-0 ">
                     <div className="container-fluid pe-0">
                         <Link to="/">
-                            <a className="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
-                                Soft UI Dashboard
-                            </a>
+                            <span className="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">
+                                Partner Program
+                            </span>
                         </Link>
                         
                         <button className="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,20 +24,20 @@ export const Home = () => (
                         <div className="collapse navbar-collapse" id="navigation">
                             <ul className="navbar-nav mx-auto ms-xl-auto me-xl-7">
 
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link to="/register">
                                         <a className="nav-link me-2">
                                             <i className="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                             Sign Up
                                         </a>
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item">
                                     <Link to="/login">
-                                        <a className="nav-link me-2">
+                                        <span className="nav-link me-2">
                                             <i className="fas fa-key opacity-6 text-dark me-1"></i>
                                             Sign In
-                                        </a>
+                                        </span>
                                     </Link>
                                 </li>
                             </ul>
@@ -59,10 +59,14 @@ export const Home = () => (
           </div>
           <div className="row justify-content-center">
             <div className="col-lg-6 text-end ">
-              <a className="btn btn-round btn-sm mb-0 btn-outline-white " target="_blank" href="#">Join as an advertiser</a>
+              <Link to='/register'>
+                <span className="btn btn-round btn-sm mb-0 btn-outline-white ">Join as an advertiser</span>
+              </Link>
             </div>
             <div className="col-lg-6 text-start ">
-              <a className="btn btn-round btn-sm mb-0 btn-outline-white " target="_blank" href="#">Join as a publisher</a>
+              <Link to='/register'>
+                <span className="btn btn-round btn-sm mb-0 btn-outline-white ">Join as a publisher</span>
+              </Link>
             </div>
           </div>
         </div>
