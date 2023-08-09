@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../../auth/useLocalStorage";
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [cPass, setCPass] = useState('');
   const [terms, setTerms] = useState(false);
+  const [storeEmail, setStoreEmail] = useLocalStorage('email', null)
   const navigate = useNavigate();
 
   function updateEmail(e) {
@@ -33,6 +35,7 @@ export default function SignUp() {
         "password": pass
       })
       .then((response) => {
+        setStoreEmail(email);
         navigate('/verify-email');
       });
   }

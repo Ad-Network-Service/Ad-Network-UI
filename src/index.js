@@ -5,11 +5,16 @@ import './App.css';
 import { RouterProvider } from "react-router-dom";
 import { router } from './router';
 import reportWebVitals from './reportWebVitals';
+import { NotificationProvider } from './services/NotificationService/NotificationContext';
+import NotificationBar from './services/NotificationService/NotificationBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <NotificationProvider>
+      <NotificationBar />
+      <RouterProvider router={router} />
+    </NotificationProvider>
   </React.StrictMode>
 );
 
