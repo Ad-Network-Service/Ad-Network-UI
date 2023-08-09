@@ -1,12 +1,16 @@
 import "./EmailVerification.css";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { CircularProgress } from "@mui/material";
 import axios from "axios";
+import { useAuth } from "../AuthProvider";
 
 export const EmailVerification = () => {
-    let [searchParams, setSearchParams] = useSearchParams();
-    let [loading, setLoading] = useState(true);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [loading, setLoading] = useState(true);
+    const [isVerified, setVerified] = useState(false);
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
     async function verifyToken(token) {
         axios
@@ -16,8 +20,9 @@ export const EmailVerification = () => {
                     token
                 }
             })
-            .then((res) => {
-                console.log(res)
+            .then((response) => {
+                login(response.headers.get('Token'))
+                setVerified(true)
                 setLoading(false)
             })
             .catch((err) => {
@@ -25,9 +30,13 @@ export const EmailVerification = () => {
             })
     }
 
-    let token = searchParams.get('token')
+    if(!isVerified) {
+        let token = searchParams.get('token')
+        verifyToken(token)
+    }
 
-    verifyToken(token)
+    if(isVerified)
+    navigate('/')
 
     if (loading)
         return (<div>
